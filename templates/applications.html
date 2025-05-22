@@ -1,0 +1,13 @@
+<h2>Applications</h2>
+<ul>
+    {% for app in apps %}
+        <li>{{ app.name }} - {{ app.blob_container }}</li>
+    {% endfor %}
+</ul>
+
+<form method="post" action="/applications/create">
+    <input name="name" placeholder="Name" required>
+    <input name="blob_connection_string" placeholder="Connection String" required>
+    <input name="blob_container" placeholder="Container" required>
+    <button type="submit">Add Application</button>
+</form>

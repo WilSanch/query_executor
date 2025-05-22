@@ -1,0 +1,64 @@
+:root {
+    --primary-color: #FC4C02;
+    --secondary-color: #00B398;
+    --gray-color: #51534A;
+}
+
+body {
+    background-color: #282C34; /* Fondo oscuro elegante */
+    color: #EDEDED;
+}
+
+h1 {
+    color: var(--primary-color);
+}
+
+.card {
+    background-color: #3B3F45;
+    color: #FFFFFF;
+    border-radius: 8px;
+    border: 1px solid var(--gray-color);
+}
+
+.table-primary {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: #E04602 !important;
+}
+
+td:nth-child(5) { /* Columna Blob Connection String */
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    max-width: 300px; /* Ajusta según tu diseño */
+}
+
+.navbar-brand {
+    color: var(--primary-color) !important;
+}
+
+.navbar-brand:hover {
+    color: #E04602 !important; /* Color más oscuro al pasar el mouse */
+}
+
+.dropdown-menu {
+    background-color: #343a40;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #FC4C02; /* Color naranja */
+    color: white;
+}

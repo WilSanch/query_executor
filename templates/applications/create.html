@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Aplicación{% endblock %}
+
+{% block contenido %}
+    <h1 class="text-primary">Crear Nueva Aplicación</h1>
+    <div class="card shadow p-4">
+        <form action="/applications/create" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="description" class="form-label">Descripción:</label>
+                <textarea id="description" name="description" class="form-control"></textarea>
+            </div>
+
+            <div class="form-check mb-3">
+                <input type="checkbox" id="active" name="active" class="form-check-input">
+                <label for="active" class="form-check-label">Activo</label>
+            </div>
+
+            <div class="mb-3">
+                <label for="blob_connection_string" class="form-label">Cadena de conexión:</label>
+                <input type="text" id="blob_connection_string" name="blob_connection_string" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="blob_container" class="form-label">Contenedor Blob:</label>
+                <input type="text" id="blob_container" name="blob_container" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Crear Aplicación</button>
+        </form>
+    </div>
+{% endblock %}

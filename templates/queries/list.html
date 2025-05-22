@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Queries{% endblock %}
+
+{% block contenido %}
+    <h1 class="mt-4 text-primary">Lista de Queries</h1>
+    <div class="card shadow p-4">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Aplicación</th>
+                    <th>Nombre</th>
+                    <th>SQL Template</th>
+                    <th>URL de BD</th>
+                    <th>Activo</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for query in queries %}
+                <tr>
+                    <td>{{ query.id }}</td>
+                    <td>{{ query.app_id }}</td>
+                    <td>{{ query.name }}</td>
+                    <td>{{ query.sql_template }}</td>
+                    <td>{{ query.db_url }}</td>
+                    <td>
+                        <span class="badge {% if query.active %} bg-success {% else %} bg-danger {% endif %}">
+                            {% if query.active %} Activo {% else %} Inactivo {% endif %}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/queries/create" class="btn btn-primary">Crear Nueva Query</a>
+    </div>
+{% endblock %}

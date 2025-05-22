@@ -1,0 +1,18 @@
+<h2>Queries</h2>
+<ul>
+    {% for q in queries %}
+        <li>{{ q.name }} (App: {{ q.app_id }})</li>
+    {% endfor %}
+</ul>
+
+<form method="post" action="/queries/create">
+    <input name="name" placeholder="Name" required>
+    <textarea name="sql_template" placeholder="SQL Template"></textarea>
+    <input name="db_url" placeholder="DB URL" required>
+    <select name="app_id">
+        {% for app in apps %}
+            <option value="{{ app.id }}">{{ app.name }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit">Add Query</button>
+</form>

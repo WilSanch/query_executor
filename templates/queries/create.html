@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Crear Query{% endblock %}
+
+{% block contenido %}
+    <h1 class="text-primary">Crear Nueva Query</h1>
+    <div class="card shadow p-4">
+        <form action="/queries/create" method="post">
+            <div class="mb-3">
+                <label for="app_id" class="form-label">Aplicación:</label>
+                <select id="app_id" name="app_id" class="form-select" required>
+                    {% for app in applications %}
+                        <option value="{{ app.id }}">{{ app.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="name" class="form-label">Nombre de la Query:</label>
+                <input type="text" id="name" name="name" class="form-control" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="sql_template" class="form-label">SQL Template:</label>
+                <textarea id="sql_template" name="sql_template" class="form-control" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="db_url" class="form-label">URL de la Base de Datos:</label>
+                <input type="text" id="db_url" name="db_url" class="form-control" required>
+            </div>
+
+            <div class="form-check mb-3">
+                <input type="checkbox" id="active" name="active" class="form-check-input">
+                <label for="active" class="form-check-label">Activo</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">Crear Query</button>
+        </form>
+    </div>
+{% endblock %}

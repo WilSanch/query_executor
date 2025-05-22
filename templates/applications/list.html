@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Lista de Aplicaciones{% endblock %}
+
+{% block contenido %}
+    <h1 class="mt-4 text-primary">Lista de Aplicaciones</h1>
+    <div class="card shadow p-4">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Activo</th>
+                    <th>Blob Connection String</th>
+                    <th>Contenedor</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for app in applications %}
+                <tr>
+                    <td>{{ app.id }}</td>
+                    <td>{{ app.name }}</td>
+                    <td>{{ app.description or 'No disponible' }}</td>
+                    <td>
+                        <span class="badge {% if app.active %} bg-success {% else %} bg-danger {% endif %}">
+                            {% if app.active %} Sí {% else %} No {% endif %}
+                        </span>
+                    </td>
+                    <td>{{ app.blob_connection_string }}</td>
+                    <td>{{ app.blob_container }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/applications/create" class="btn btn-primary">Crear Nueva Aplicación</a>
+    </div>
+{% endblock %}
